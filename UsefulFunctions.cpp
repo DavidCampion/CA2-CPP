@@ -4,8 +4,12 @@
 #include "UsefulFunctions.h"
 static TCHAR szWindowClass[] = _T("DesktopApp");
 
+
 // The string that appears in the application's title bar.
-static TCHAR szTitle[] = _T("Image Editing Application");
+static TCHAR szTitle[] = _T("Better Photoshop");
+
+// Old Title
+//static TCHAR szTitle[] = _T("Image Editing Application");
 
 // Stored instance handle for use in Win32 API calls such as FindResource
 HINSTANCE hInst;
