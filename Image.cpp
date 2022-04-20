@@ -168,7 +168,9 @@ void Image::AdditionalFunction3()
 }
 void Image::AdditionalFunction1()
 {
-
+    for (int c = 0; c < w * h; c++) {
+        this->pixels[c].g = 25;
+    }
 }
 
 /* Functions used by the GUI - DO NOT MODIFY */
