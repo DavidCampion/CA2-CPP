@@ -158,18 +158,45 @@ void Image::flipVertically()
         }
     }
 }
+void Image::AdditionalFunction1()
+{
+    //High Colour Filter
+    for (int c = 0; c < w * h; c++) {
+        this->pixels[c].g = 25;
+    }
+}
 void Image::AdditionalFunction2()
 {
-
+    // Circshift
+    Image circ = Image(w,h);
+    for (int j = 0; j < h; ++j) {
+        int jmod = (j + 50) % h;
+        for (int i = 0; i < w; ++i) {
+            int imod = (i + 70) % w;
+            circ.pixels [jmod * w + imod] = pixels[j * w + i];
+        }
+    }
+    *this = circ;
 }
 void Image::AdditionalFunction3()
 {
+    // Mirror Effect
+    int pixels[3];
+    unsigned int img1;
+    unsigned int img2;
+    for(int x= 0; x < w; ++x)
+    {
+        for(int y =0; y <h/2; ++y)
+        {
+            img1 = x + y * w;
+            img2 = x + (h - 1 - y) * w;
 
-}
-void Image::AdditionalFunction1()
-{
-    for (int c = 0; c < w * h; c++) {
-        this->pixels[c].g = 25;
+            pixels[0] = this->pixels[img1].r;
+            pixels[1] = this->pixels[img1].g;
+            pixels[2] = this->pixels[img1].b;
+
+            this->pixels[img1] = this->pixels[img2];
+        }
     }
 }
 
