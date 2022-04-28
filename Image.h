@@ -11,6 +11,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <math.h>
 
 using namespace std;
 struct Rgb
@@ -51,6 +52,8 @@ public:
     void AdditionalFunction1();
     void AdditionalFunction2();
     void AdditionalFunction3();
+    void Gamma();
+    void AdvancedFeature();
 
     /*Functions used in the GUI - DO NOT MODIFY */
     Rgb* getImage();

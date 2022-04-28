@@ -162,21 +162,15 @@ void Image::AdditionalFunction1()
 {
     //High Colour Filter
     for (int c = 0; c < w * h; c++) {
-        this->pixels[c].g = 25;
+        pixels[c].g = 25;
     }
 }
 void Image::AdditionalFunction2()
 {
-    // Circshift
-    Image circ = Image(w,h);
-    for (int j = 0; j < h; ++j) {
-        int jmod = (j + 50) % h;
-        for (int i = 0; i < w; ++i) {
-            int imod = (i + 70) % w;
-            circ.pixels [jmod * w + imod] = pixels[j * w + i];
-        }
+    // Black and White
+    for (int c = 0; c < w * h; c++) {
+        pixels[c].r = pixels[c].b = pixels[c].g;
     }
-    *this = circ;
 }
 void Image::AdditionalFunction3()
 {
@@ -198,6 +192,30 @@ void Image::AdditionalFunction3()
             this->pixels[img1] = this->pixels[img2];
         }
     }
+}
+
+void Image::Gamma()
+{
+    for(int i = 0; i < w * h; i++) {
+        float gamma=1/2.2f;
+        pixels[i].r = pow(pixels[i].r / 255.0f, gamma) * 255;
+        pixels[i].g = pow(pixels[i].g / 255.0f, gamma) * 255;
+        pixels[i].b = pow(pixels[i].b / 255.0f, gamma) * 255;
+    }
+}
+
+void Image::AdvancedFeature()
+{
+    // Circshift
+    Image circ = Image(w,h);
+    for (int j = 0; j < h; ++j) {
+        int jmod = (j + 50) % h;
+        for (int i = 0; i < w; ++i) {
+            int imod = (i + 70) % w;
+            circ.pixels [jmod * w + imod] = pixels[j * w + i];
+        }
+    }
+    *this = circ;
 }
 
 /* Functions used by the GUI - DO NOT MODIFY */
