@@ -160,7 +160,7 @@ void Image::flipVertically()
 }
 void Image::AdditionalFunction1()
 {
-    //High Colour Filter
+    //Red-Blue Filter
     for (int c = 0; c < w * h; c++) {
         pixels[c].g = 25;
     }
@@ -168,8 +168,8 @@ void Image::AdditionalFunction1()
 void Image::AdditionalFunction2()
 {
     // Black and White
-    for (int c = 0; c < w * h; c++) {
-        pixels[c].r = pixels[c].b = pixels[c].g;
+    for (int i = 0; i < w * h; i++) {
+        pixels[i].r = pixels[i].b = pixels[i].g;
     }
 }
 void Image::AdditionalFunction3()
